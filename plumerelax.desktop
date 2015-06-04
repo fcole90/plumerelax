@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=plumerelax
+Exec=qmlscene $@ Main.qml
+Icon=plumerelax.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
