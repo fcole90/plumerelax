@@ -1,17 +1,15 @@
 {
     "name": "plumerelax.fcole90",
-    "description": "description of plumerelax",
+    "description": "Relaxing and inspirational sounds",
     "architecture": "all",
-    "title": "plumerelax",
+    "title": "Plume Relax",
     "hooks": {
         "plumerelax": {
             "apparmor": "plumerelax.apparmor",
-            "desktop":  "plumerelax.desktop"
+            "desktop": "plumerelax.desktop"
         }
     },
     "version": "0.1",
     "maintainer": "Fabio Colella <fcole90@gmail.com>",
-    "framework" : "ubuntu-sdk-15.04"
+    "framework": "ubuntu-sdk-15.04"
 }
-
-

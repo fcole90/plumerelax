@@ -21,37 +21,28 @@ MainView {
     // Removes the old toolbar and enables new features of the new header.
     useDeprecatedToolbar: false
 
-    width: units.gu(100)
+    width: units.gu(40)
     height: units.gu(75)
 
-    Page {
-        title: i18n.tr("plumerelax")
+    Tabs {
 
-        Column {
-            spacing: units.gu(1)
-            anchors {
-                margins: units.gu(2)
-                fill: parent
-            }
 
-            Label {
-                id: label
-                objectName: "label"
-
-                text: i18n.tr("Hello..")
-            }
-
-            Button {
-                objectName: "button"
-                width: parent.width
-
-                text: i18n.tr("Tap me!")
-
-                onClicked: {
-                    label.text = i18n.tr("..world!")
-                }
+        Tab {
+            title: i18n.tr("Choose your sound")
+            page: SoundSelectorPage{
+                id: soundSelectorPage
             }
         }
-    }
-}
 
+        Tab {
+            title: i18n.tr("Play your relax")
+            page: PlayManagerPage {
+                id: playManagerPage
+            }
+        }
+
+    }
+
+
+
+}

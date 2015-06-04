@@ -2,10 +2,9 @@
 #
 # Notes for autopilot tests:
 # ---------------------------------------------------------------
-# In order to run autopilot tests:
-# sudo apt-add-repository ppa:autopilot/ppa
+# sudo add-apt-repository ppa:autopilot/1.5
 # sudo apt-get update
-# sudo apt-get install python-autopilot autopilot-qt
+# sudo apt-get install autopilot-touch
 #
 # Notes for translations:
 # ---------------------------------------------------------------
