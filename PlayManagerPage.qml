@@ -1,30 +1,32 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.1
+import Ubuntu.Components.ListItems 1.0 as ListItem
 
 Page {
-    Column {
-        spacing: units.gu(1)
-        anchors {
-            margins: units.gu(2)
-            fill: parent
-        }
 
-        Label {
-            id: label
-            objectName: "label"
-            wrapMode: Text.WordWrap
-            text: i18n.tr("Hello..")
-        }
+    UbuntuListView {
+        id: selectedItemsListView
+        anchors { left: parent.left; right: parent.right; }
+        height: parent.height
+        //Avoid overlapping other elements and the listview
+        clip: true
+        model: selectedItemsModel
 
-        Button {
-            objectName: "button"
-            width: parent.width
-
-            text: i18n.tr("Tap me!")
+        delegate: ListItem.Standard {
+            id: selectedItemsListItem
+            //this takes the name property of the model
+            text: selectionName
+            control: CheckBox {
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            //If no icon path is defined a default pic is loaded
+            iconSource: {selectionIconPath ? Qt.resolvedUrl("pics/" + selectionIconPath) : Qt.resolvedUrl("pics/avatar_contacts_list.png")}
 
             onClicked: {
-                label.text = i18n.tr("..world!")
+                //Play a preview
+                print("Playing a preview");
             }
+
         }
     }
 }

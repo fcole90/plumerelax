@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=plumerelax
+Name=Plume Relax
 Exec=qmlscene $@ Main.qml
 Icon=plumerelax.png
 Terminal=false

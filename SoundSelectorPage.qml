@@ -21,10 +21,10 @@ Page {
             text: i18n.tr("Select your sounds an then move to play your relax.")
         }
 
-
-        SoundSelectorListModel {
+        SoundSelectorListModel{
             id: soundSelectorlistModel
         }
+
 
         UbuntuListView {
             id: soundSelectorListView
@@ -36,17 +36,45 @@ Page {
 
             delegate: ListItem.Standard {
                 id: soundSelectorListItem
-                selected: false
-                text: name
+                //this takes the name property of the model
+                text: soundName
                 control: CheckBox {
                     anchors.verticalCenter: parent.verticalCenter
+                    onCheckedChanged: {
+                        if (checked)
+                        {
+                            selectedItemsModel.append({"selectionName": soundName,
+                                                                "selectionIconPath": iconPath });
+                            var myIndex = selectedItemsModel.count;
+                            print(myIndex);
+                        }
+                        else //Check if the index is correct and remove the sound
+                        {
+                            var soundObj = selectedItemsModel.get(myIndex)
+                            if (soundObj.selectionName === soundName)
+                            {
+                                selectedItemsModel.remove(myIndex)
+                            }
+                            else
+                            {
+                                for(var i = 1; i<=selectedItemsModel.count; i++)
+                                {
+                                    if(selectedItemsModel.get(i).selectionName === soundName)
+                                    {
+                                        selectedItemsModel.remove(i);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 //If no icon path is defined a default pic is loaded
                 iconSource: {iconPath ? Qt.resolvedUrl("pics/" + iconPath) : Qt.resolvedUrl("pics/avatar_contacts_list.png")}
 
                 onClicked: {
-                    //Check or uncheck the item
-                    selected = !selected
+                    //Play a preview
+                    print("Playing a preview");
                 }
 
             }

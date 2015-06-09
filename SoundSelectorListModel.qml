@@ -1,22 +1,28 @@
 import QtQuick 2.0
 ListModel {
     ListElement {
-        name: "Sea"
+        soundName: "Sea"
         iconPath: "avatar_contacts_list.png"
+        property int myIndex
     }
     ListElement {
-        name: "Campfire"
+        soundName: "Campfire"
+        property int myIndex
     }
     ListElement {
-        name: "Seagulls"
+        soundName: "Seagulls"
+        property int myIndex
     }
     ListElement {
-        name: "Forest"
+        soundName: "Forest"
+        property int myIndex
     }
     ListElement{
-        name: "Acquarium"
+        soundName: "Acquarium"
+        property int myIndex
     }
     ListElement{
-        name: "City Noise"
+        soundName: "City Noise"
+        property int myIndex
     }
 }

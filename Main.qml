@@ -25,6 +25,9 @@ MainView {
     height: units.gu(75)
 
     Tabs {
+        ListModel {
+            id: selectedItemsModel
+        }
 
 
         Tab {
