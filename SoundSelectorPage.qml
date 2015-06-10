@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtMultimedia 5.0
 import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 1.0 as ListItem
 
@@ -43,13 +44,15 @@ Page {
                     onCheckedChanged: {
                         if (checked)
                         {
-                            selectedItemsModel.append({"selectionName": soundName,
-                                                                "selectionIconPath": iconPath });
+                            selectedItemsModel.append({"selectionName": soundName,"selectionIconPath": iconPath });
                             var myIndex = selectedItemsModel.count;
                             print(myIndex);
+                            //temp
+                            sound.play();
                         }
                         else //Check if the index is correct and remove the sound
                         {
+                            sound.stop();
                             var soundObj = selectedItemsModel.get(myIndex)
                             if (soundObj.selectionName === soundName)
                             {
@@ -72,9 +75,15 @@ Page {
                 //If no icon path is defined a default pic is loaded
                 iconSource: {iconPath ? Qt.resolvedUrl("pics/" + iconPath) : Qt.resolvedUrl("pics/avatar_contacts_list.png")}
 
+                SoundEffect {
+                        id: sound
+                        source: "media/seagulls/sound.wav"
+
+                }
                 onClicked: {
                     //Play a preview
                     print("Playing a preview");
+                    sound.play();
                 }
 
             }
