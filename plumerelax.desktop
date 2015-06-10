@@ -5,4 +5,5 @@ Icon=plumerelax.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-
+X-Ubuntu-Splash-Color-Header=#4e3c91
+X-Ubuntu-Splash-Color-Footer=#0e1c2f
